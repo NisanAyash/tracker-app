@@ -13,7 +13,7 @@ services:
       - "redis-server"
 
   nginx:
-    image: nginx
+    build: ./nginx
     depends_on:
       - "app"
     volumes:
