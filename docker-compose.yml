@@ -16,7 +16,5 @@ services:
     build: ./nginx
     depends_on:
       - "app"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "8080:80"
