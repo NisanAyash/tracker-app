@@ -13,16 +13,10 @@ services:
     depends_on:
       - "redis-server"
 
-  # nginx:
-  #   image: nginx
-  #   volumes:
-  #     - ./templates:/etc/nginx/templates
-  #    ports:
-  #     - "8080:80"
-
-  # mongodb:
-  #   image: mongodb
-  #   volumes:
-  #     - data:/data
-  #   port:
-  #     - 1217:12717
+  nginx:
+    image: nginx
+    volumes:
+      - "$PWD/conf/nginx/conf.d:/etc/nginx/conf.d"
+      - "$PWD/www:/usr/share/nginx/html"
+     ports:
+      - "8080:80"
