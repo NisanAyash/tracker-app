@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  redis-server:
+    image: "redis"
+    ports:
+      - "6379:6379"
+
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - "redis-server"
+
+  # nginx:
+  #   image: nginx
+  #   volumes:
+  #     - ./templates:/etc/nginx/templates
+  #    ports:
+  #     - "8080:80"
+
+  # mongodb:
+  #   image: mongodb
+  #   volumes:
+  #     - data:/data
+  #   port:
+  #     - 1217:12717
