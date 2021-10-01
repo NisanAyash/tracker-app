@@ -15,6 +15,8 @@ services:
 
   nginx:
     image: nginx
+    depends_on: 
+      - "app"
     volumes:
       - "$PWD/conf/nginx/conf.d:/etc/nginx/conf.d"
       - "$PWD/www:/usr/share/nginx/html"
